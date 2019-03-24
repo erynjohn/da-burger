@@ -25,7 +25,7 @@ function objToSql(ob) {
   
 var orm = {
     viewAll: ((whatToSelect, table, cb) => {
-        var queryStr = "SELECT ?? FROM ?? ORDER BY ID DESC";
+        var queryStr = "SELECT ?? FROM ??";
         connection.query(queryStr, [whatToSelect, table], ((err, result) => {
             if (err) throw err;
             cb(result)
@@ -47,7 +47,7 @@ var orm = {
     }),
     //update 
     update: ((table, objColVals, condition, cb) => {
-        var queryStr = "UPDATE" +table;
+        var queryStr = "UPDATE " + table;
         queryStr += " SET ";
         queryStr += objToSql(objColVals);
         queryStr += " WHERE ";

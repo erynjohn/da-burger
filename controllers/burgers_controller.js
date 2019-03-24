@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var burgerQuery = require("../models/burger")
+var burgerQuery = require("../models/burger");
 
 // routes
 router.get("/", function(req, res) {
@@ -10,25 +10,23 @@ router.get("/", function(req, res) {
             title: "Da Burger || HOME",
             burgerObj
             
+            
         });
     })
 });
-
 router.post("/api/burger", ((req, res) =>{
     burgerQuery.create([ "burger_name"], [req.body.name],
     ((result) => {
         res.redirect("/");
     }));
 }));
-
-router.put("/api/burger/:id", ((req, res) => {
-    var condition = "id=" + req.params.id;
-    console.log(condition);
-    devoured = true;
+router.get("/api/burger/:id", ((req, res) => {
+    var condition = "id= " + req.params.id;
     burgerQuery.update({
-        devoured
+        devoured: true
     }, condition, ((result) => {
-        res.render("/");
+        res.redirect("/");
+
     }))
 }))
 module.exports = router;
