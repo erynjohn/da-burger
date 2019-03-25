@@ -1,24 +1,10 @@
+
+
+{{> burgerConsumed}}
+
 {{#each burgerObj.burger}}
-
-{{#if this.devoured}}
-
-<div class="card mb-3" style="width: 30%;">
-    <h3 class="card-header">{{{this.burger_name}}}</h3>
-    <div class="card-body">
-      <h5 class="card-title">Only At Da Burger Shop</h5>
-      <h6 class="card-subtitle text-muted">Order ID: {{{this.id}}}</h6>
-    </div>
-    <img style="width: 100%; display: block;"
-      src="https://images.unsplash.com/photo-1540265556701-ae209ac395cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-      alt="Card image">
-    <div class="card-body">
-      <p class="card-text">{{{ this.burger_name }}} has been consumed</p>
-    </div>
-
-  {{else}}
-
+  {{#unless this.devoured}}
   <div class="card mb-3" style="width: 30%;">
-
   <h3 class="card-header">{{{this.burger_name}}}</h3>
   <div class="card-body">
     <h5 class="card-title">Only At Da Burger Shop</h5>
@@ -27,8 +13,6 @@
   <img style="width: 100%; display: block;"
     src="https://images.unsplash.com/photo-1540265556701-ae209ac395cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
     alt="Card image">
-
-
   <div class="card-body">
     <p class="card-text">The {{{ this.burger_name }}} is one of the very best burgers we make here at Da Burger Shop</p>
   </div>
@@ -38,24 +22,18 @@
      </li>
   </ul>
   </form>
-
-
-
-
-    {{/if}}
     <div class="card-footer text-muted">
     </div>
   </div>
   <div class="card">
   </div>
-
+  {{/unless}}
     {{/each}}
+    
+    {{> addBurger}}
 
-    <form action="/api/burger" method="POST">
-      <div class="form-group has-danger">
-        <label class="form-control-label" for="inputDanger1">Invalid input</label>
-        <input type="text" value="wrong value" class="form-control is-invalid" id="name" name="name">
-        <div class="invalid-feedback">Sorry, this block shouldn't be empty</div>
-        <button type="submit" class="btn btn-primary btn-lg">Large button</button>
-      </div>
-    </form>
+<script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    

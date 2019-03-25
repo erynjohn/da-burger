@@ -14,12 +14,13 @@ router.get("/", function(req, res) {
         });
     })
 });
-router.post("/api/burger", ((req, res) =>{
-    burgerQuery.create([ "burger_name"], [req.body.name],
-    ((result) => {
-        res.redirect("/");
-    }));
-}));
+router.post("/api/burger", ((req, res) => {
+    var data = req.body.text;
+    burgerQuery.create(["burger_name"], [data], (() => {
+        res.render("index");
+    }))
+}))
+
 router.get("/api/burger/:id", ((req, res) => {
     var condition = "id= " + req.params.id;
     burgerQuery.update({
