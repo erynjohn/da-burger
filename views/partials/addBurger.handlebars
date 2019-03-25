@@ -8,7 +8,8 @@
 <script>
 
         //Add burger
-        $(".addBurger").on("click", (() => {
+        $(".addBurger").on("click", ((e) => {
+          e.preventDefault();
           var burgerInput = $("#name").val().trim();
           $.ajax({
             url: "/api/burger",
@@ -16,8 +17,11 @@
             method: "POST",
             type: JSON,
             success: function(res) {
-              console.log(res.from)
-            }
+              console.log("Added")
+            },
+            complete: function() {
+          location.reload();
+        }
 
           })
           $("#name").val(" ");

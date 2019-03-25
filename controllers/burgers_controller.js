@@ -20,14 +20,22 @@ router.post("/api/burger", ((req, res) => {
         res.render("index");
     }))
 }))
-
-router.get("/api/burger/:id", ((req, res) => {
-    var condition = "id= " + req.params.id;
+router.put("/api/burger/:id", ((req, res) => {
+    var condition = "id= " + req.body.text;
     burgerQuery.update({
         devoured: true
-    }, condition, ((result) => {
-        res.redirect("/");
-
+    }, condition, (() => {
+        res.render("index")
     }))
 }))
+
+// router.get("/api/burger/:id", ((req, res) => {
+//     var condition = "id= " + req.params.id;
+//     burgerQuery.update({
+//         devoured: true
+//     }, condition, ((result) => {
+//         res.redirect("/");
+
+//     }))
+// }))
 module.exports = router;

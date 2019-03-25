@@ -17,8 +17,9 @@
     <p class="card-text">The {{{ this.burger_name }}} is one of the very best burgers we make here at Da Burger Shop</p>
   </div>
   <ul class="list-group list-group-flush">
-    <form method="PUT" action="/api/burger/{{this.id}}">
-      <li class="list-group-item"> <button type="submit" class="btn btn-primary btn-sm">Consume It</button>
+    {{!-- <form method="PUT" action="/api/burger/{{this.id}}" id="burger-update"> --}}
+    <form id="burger-update">
+      <li class="list-group-item"> <button type="submit" id="btn-id" class="btn btn-primary btn-sm" data-id="{{this.id}}">Consume It</button>
      </li>
   </ul>
   </form>
@@ -36,4 +37,22 @@
   src="http://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
+
+  <script>
+    $("#btn-id").on("click", ((e) => {
+      e.preventDefault();
+      var data = $("#btn-id").data("id");
+      $.ajax({
+        url: "/api/burger/"+data,
+        method: "PUT",
+        data: { text: data },
+        type: JSON,
+        success: function(res) {
+        },
+        complete: function() {
+          location.reload();
+        }
+      })
+    }))
+  </script>
     
