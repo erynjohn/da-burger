@@ -14,7 +14,7 @@
 </style>
 
 <div>
-  <h2 class="gone">Gone</h2>
+  <h2 class="gone">Favorite</h2>
 </div>
 {{#each burgerObj.burger}}
 {{#if this.devoured}}
@@ -29,7 +29,7 @@
       src="https://images.unsplash.com/photo-1540265556701-ae209ac395cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
       alt="Card image">
     <div class="card-body">
-      <p class="card-text">{{{ this.burger_name }}} has been consumed</p>
+      <p class="card-text">{{{ this.burger_name }}} has been added to favorites</p>
     </div>
 
     <div class="card-footer text-muted">
