@@ -1,59 +1,45 @@
+<style>
+  * {
+  box-sizing: border-box;
+}
+body {
+  padding: 5px;
+  background-color: rgb(238, 236, 236);
+}
+.card {
+  background-color: #ffff;
+  margin: 10px 30%;
+}
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40%, 2fr));
+    grid-gap: 10px;
+  }
+  .addBurgerDiv {
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+  .consumedBurger {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    margin-top: 132px;
+  }
+  @media screen and (max-width: 780px) {
+  h3, h5, h6 {
+    font-size: 1em;
+  }
+  } 
+    
+</style>
 
+{{> hero}}
 
+<div class="grid-container">
+
+<div class="addBurgerDiv"> 
+  {{> addBurger}}
+</div>
+<div class="consumedBurger">
 {{> burgerConsumed}}
-
-{{#each burgerObj.burger}}
-  {{#unless this.devoured}}
-
-  <div class="card mb-3" style="width: 30%;">
-  <h3 class="card-header">{{{this.burger_name}}}</h3>
-  <div class="card-body">
-    <h5 class="card-title">Only At Da Burger Shop</h5>
-    <h6 class="card-subtitle text-muted">Order ID: {{{this.id}}}</h6>
-  </div>
-  <img style="width: 100%; display: block;"
-    src="https://images.unsplash.com/photo-1540265556701-ae209ac395cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-    alt="Card image">
-  <div class="card-body">
-    <p class="card-text">The {{{ this.burger_name }}} is one of the very best burgers we make here at Da Burger Shop</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <form id="burger-update">
-      <li class="list-group-item"> <button type="submit" id="btn-id" class="btn btn-primary btn-sm" data-id="{{this.id}}">Consume It</button>
-     </li>
-  </ul>
-  </form>
-    <div class="card-footer text-muted">
-    </div>
-  </div>
-  <div class="card">
-  </div>
-  {{/unless}}
-    {{/each}}
-    
-    {{> addBurger}}
-
-<script
-  src="http://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-
-  <script>
-    $("#btn-id").on("click", ((e) => {
-      e.preventDefault();
-      var data = $("#btn-id").data("id");
-      $.ajax({
-        url: "/api/burger/"+data,
-        method: "PUT",
-        data: { text: data },
-        type: JSON,
-        success: function(res) {
-          console.log("Updated")
-        },
-        complete: function() {
-          location.reload();
-        }
-      })
-    }))
-  </script>
-    
+</div>
+</div>

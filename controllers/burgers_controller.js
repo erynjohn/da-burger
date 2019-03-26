@@ -29,13 +29,4 @@ router.put("/api/burger/:id", ((req, res) => {
     }))
 }))
 
-// router.get("/api/burger/:id", ((req, res) => {
-//     var condition = "id= " + req.params.id;
-//     burgerQuery.update({
-//         devoured: true
-//     }, condition, ((result) => {
-//         res.redirect("/");
-
-//     }))
-// }))
 module.exports = router;

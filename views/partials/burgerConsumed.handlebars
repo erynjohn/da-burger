@@ -1,9 +1,25 @@
-{{> hero}}
+<style>
+  .cardBody {
+    width: 60%
+  }
+
+  img {
+    margin: auto;
+  }
+  .gone {
+    background-color: #525662a9;
+    color: #ffff;
+    text-align: center;
+  }
+</style>
+
+<div>
+  <h2 class="gone">Gone</h2>
+</div>
 {{#each burgerObj.burger}}
-
 {{#if this.devoured}}
-
-<div class="card mb-3" style="width: 30%;">
+<div class="cardBody">
+  <div class="card mb-3" style="width: 100%;">
     <h3 class="card-header">{{{this.burger_name}}}</h3>
     <div class="card-body">
       <h5 class="card-title">Only At Da Burger Shop</h5>
@@ -21,5 +37,6 @@
   </div>
   <div class="card">
   </div>
-    {{/if}}
-    {{/each}}
+</div>
+{{/if}}
+{{/each}}
