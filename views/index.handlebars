@@ -1,36 +1,37 @@
 {{> hero}}
 <div class="grid-container">
-<div class="addBurgerDiv"> 
-  {{> addBurger}}
-</div>
-<div class="consumedBurger">
-  <div>
-  <h2 class="gone">Favorite</h2>
-</div>
-{{#each burgerObj.burger}}
-{{#if this.devoured}}
-<div class="cardBody">
-  <div class="card mb-3" style="width: 100%;">
-    <h3 class="card-header">{{{this.burger_name}}}</h3>
-    <div class="card-body">
-      <h5 class="card-title">Only At Da Burger Shop</h5>
-      <h6 class="card-subtitle text-muted">Order ID: {{{this.id}}}</h6>
-    </div>
-    <img style="width: 100%; display: block;"
-      src="https://images.unsplash.com/photo-1540265556701-ae209ac395cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-      alt="Card image">
-    <div class="card-body">
-      <p class="card-text">{{{ this.burger_name }}} has been added to favorites</p>
-    </div>
-
-    <div class="card-footer text-muted">
-    </div>
+  <div class="addBurgerDiv">
+    {{> addBurger}}
   </div>
-  <div class="card">
-  </div>
-</div>
-{{/if}}
-{{/each}}
+  <div class="consumedBurger">
+    <div>
+      <h2 class="gone">Favorite</h2>
+    </div>
+    {{#each burgerObj.burger}}
+    {{#if this.devoured}}
+    <div class="cardBody">
+      <div class="card mb-3" style="width: 100%;">
+        <h3 class="card-header">{{{this.burger_name}}}</h3>
+        <div class="card-body">
+          <h5 class="card-title">Only At Da Burger Shop</h5>
+          <h6 class="card-subtitle text-muted">Order ID: {{{this.id}}}</h6>
+        </div>
+        <img style="width: 100%; display: block;" class="lazy" src="/assets/images/placeholderImage.png"
+          data-src="https://images.unsplash.com/photo-1540265556701-ae209ac395cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+          data-srcset="https://images.unsplash.com/photo-1540265556701-ae209ac395cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60 2x"
+          alt="Card image">
+        <div class="card-body">
+          <p class="card-text">{{{ this.burger_name }}} has been added to favorites</p>
+        </div>
 
-</div>
+        <div class="card-footer text-muted">
+        </div>
+      </div>
+      <div class="card">
+      </div>
+    </div>
+    {{/if}}
+    {{/each}}
+
+  </div>
 </div>
