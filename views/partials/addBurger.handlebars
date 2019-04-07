@@ -1,24 +1,3 @@
-<style>
-  .cardBody {
-    width: 60%
-  }
-  img {
-    margin: auto;
-  }
-  .addIt {
-    margin: 10px auto;
-  }
-  .addBurger {
-    margin: 10px auto;
-    width: 248px;
-  }
-  .ready {
-    background-color:#525662a9;
-    color: #ffff;
-    text-align: center;
-  }
-</style>
-
 <form class="addIt"  >
       <div class="form-group">
         <input type="text" class="inputBurger form-control" id="name" name="name" placeholder="Add burger...." required>
@@ -59,51 +38,3 @@
   </div>
   {{/unless}}
     {{/each}}
-
-<script
-  src="http://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-
-  <script>
-    $("#btn-id").on("click", ((e) => {
-      e.preventDefault();
-      var data = $("#btn-id").data("id");
-      $.ajax({
-        url: "/api/burger/"+data,
-        method: "PUT",
-        data: { text: data },
-        type: JSON,
-        success: function(res) {
-          console.log("Updated")
-        },
-        complete: function() {
-          location.reload();
-        }
-      })
-    }))
-  </script>
-<script>
-
-        //Add burger
-        $(".addBurger").on("click", ((e) => {
-          e.preventDefault();
-          var burgerInput = $("#name").val().trim();
-          $.ajax({
-            url: "/api/burger",
-            data: { text: burgerInput },
-            method: "POST",
-            type: JSON,
-            success: function(res) {
-              console.log("Added")
-            },
-            complete: function() {
-          location.reload();
-        }
-
-          })
-          $("#name").val(" ");
-          
-        }))
-    </script>
-

@@ -1,3 +1,79 @@
-body {
-    background-color: red;
+* {
+    box-sizing: border-box;
+  }
+  body {
+    padding: 5px;
+    background-color: rgb(238, 236, 236);
+  }
+  .card {
+    background-color: #ffff;
+    margin: 10px 30%;
+  }
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(40%, 2fr));
+      grid-gap: 10px;
+    }
+    .addBurgerDiv {
+      grid-column-start: 1;
+      grid-column-end: 2;
+    }
+    .consumedBurger {
+      grid-column-start: 2;
+      grid-column-end: 3;
+      margin-top: 132px;
+    }
+    .cardBody {
+        width: 60%
+      }
+      img {
+        margin: auto;
+      }
+      .addIt {
+        margin: 10px auto;
+      }
+      .addBurger {
+        margin: 10px auto;
+        width: 248px;
+      }
+      .ready {
+        background-color:#525662a9;
+        color: #ffff;
+        text-align: center;
+      }
+      .cardBody {
+        width: 60%
+      }
+    
+      img {
+        margin: auto;
+      }
+      .gone {
+        background-color: #525662a9;
+        color: #ffff;
+        text-align: center;
+      }
+      li {
+        list-style: none;
+    }
+    ul {
+        float: right;
+    }
+    li {
+        float: right;
+        padding: 10px;
+        margin: auto;
+        font-size: 2em;
+    }
+    @media screen and (max-width: 780px) {
+    h2, h3, h5, h6 {
+      font-size: 1em;
+    }
+    .addBurger {
+      font-size: 1em;
+    }
+    #btn-id {
+      font-size: 0.4em;
+    }
 }
+    
