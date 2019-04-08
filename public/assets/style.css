@@ -1,48 +1,39 @@
 * {
     box-sizing: border-box;
   }
+  .addBurgerDiv {
+    width: 50%;
+    float: left;
+  }
+  .consumedBurger {
+    width: 50%;
+    float: left;
+    margin-top: 112px;
+  }
   body {
     padding: 5px;
     background-color: rgb(238, 236, 236);
   }
+  .grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(40px, 2fr));
+  }
   .card {
     background-color: #ffff;
-    margin: 10px 30%;
   }
-    .grid-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(40%, 2fr));
-      grid-gap: 10px;
-    }
-    .addBurgerDiv {
-      grid-column-start: 1;
-      grid-column-end: 2;
-    }
-    .consumedBurger {
-      grid-column-start: 2;
-      grid-column-end: 3;
-      margin-top: 132px;
-    }
-    .cardBody {
-        width: 60%
-      }
       img {
         margin: auto;
       }
       .addIt {
         margin: 10px auto;
       }
-      .addBurger {
-        margin: 10px auto;
-        width: 248px;
-      }
       .ready {
         background-color:#525662a9;
         color: #ffff;
         text-align: center;
       }
-      .cardBody {
-        width: 60%
+
+      .mb-3 {
+        width: 60%;
       }
     
       img {
@@ -66,14 +57,42 @@
         font-size: 2em;
     }
     @media screen and (max-width: 780px) {
-    h2, h3, h5, h6 {
+      .addBurgerDiv {
+        clear: left;
+        width: 100%;
+      }
+      .consumedBurger {
+        clear: left;
+        width: 100%;
+      }
+      .mb-3 {
+        width: 100%;
+      }
+      .card {
+
+        margin: 10px 0;
+        padding: 10px;
+      }
+ 
+    h5, h6 {
       font-size: 1em;
     }
+    h3 {
+      font-size: 1.5em;
+    }
     .addBurger {
-      font-size: 1em;
+      margin: 5px;
+      padding: 0;
+      font-size: 1.5em;
+      width: 250px;
+      height: 35px;
     }
     #btn-id {
       font-size: 0.4em;
+      width: 200px;
+    }
+    .card-orange {
+      background-color: #eb6864;
     }
 }
     
